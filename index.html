@@ -1,1 +1,904 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahira Khan Archive | Glorious Beauty</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#fef9c3',
+                            300: '#fde047',
+                            400: '#eab308',
+                            500: '#ca8a04',
+                            600: '#a16207',
+                            700: '#854d0e',
+                        },
+                        emerald: {
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                        velvet: '#12050b',
+                        burgundy: '#2d0a14'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #080306;
+            color: #e5e7eb;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080306;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ca8a04;
+            border-radius: 4px;
+        }
+
+        /* Gold Gradient Text */
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #fff2a3 0%, #ca8a04 50%, #fde047 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-gradient {
+            border-image: linear-gradient(to right, #ca8a04, #fef9c3, #854d0e) 1;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(20, 10, 16, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(202, 138, 4, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(202, 138, 4, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(202, 138, 4, 0.25);
+        }
+
+        /* Hero Background Glow */
+        .hero-glow {
+            background: radial-gradient(circle at 50% 30%, rgba(202, 138, 4, 0.15) 0%, rgba(6, 78, 59, 0.1) 40%, rgba(8, 3, 6, 0.95) 80%);
+        }
+
+        /* Sound visualizer animation */
+        .bar-anim {
+            animation: pulseHeight 1.2s infinite ease-in-out alternate;
+        }
+        @keyframes pulseHeight {
+            0% { height: 10%; }
+            100% { height: 100%; }
+        }
+
+        /* Modal backdrop transition */
+        .modal-blur {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="selection:bg-gold-500 selection:text-black">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 w-full z-40 glass-card bg-opacity-80 border-b border-gold-500/20 px-4 lg:px-8 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-cinzel text-xl md:text-2xl font-bold tracking-widest gold-text-gradient flex items-center gap-2">
+                <i class="fa-solid fa-crown text-gold-400 text-sm"></i> MAHIRA KHAN
+            </a>
+            
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-gray-300">
+                <a href="#biography" class="hover:text-gold-400 transition-colors">Roots & Single Mom</a>
+                <a href="#philosophy" class="hover:text-gold-400 transition-colors">Philosophy & Truth</a>
+                <a href="#filmography" class="hover:text-gold-400 transition-colors">Film & Dramas</a>
+                <a href="#manch" class="hover:text-gold-400 transition-colors">Ramp & Voice</a>
+                <a href="#awards" class="hover:text-gold-400 transition-colors">Kingdom Triumphs</a>
+                <a href="#speech-lab" class="hover:text-gold-400 transition-colors">Voice Simulator</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-gold-400 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-drawer" class="hidden lg:hidden flex-col gap-4 pt-4 pb-2 border-t border-gold-500/20 mt-3 text-sm">
+            <a href="#biography" class="mobile-link text-gray-300 hover:text-gold-400">Roots & Single Mom</a>
+            <a href="#philosophy" class="mobile-link text-gray-300 hover:text-gold-400">Philosophy & Truth</a>
+            <a href="#filmography" class="mobile-link text-gray-300 hover:text-gold-400">Film & Dramas</a>
+            <a href="#manch" class="mobile-link text-gray-300 hover:text-gold-400">Ramp & Voice</a>
+            <a href="#awards" class="mobile-link text-gray-300 hover:text-gold-400">Kingdom Triumphs</a>
+            <a href="#speech-lab" class="mobile-link text-gray-300 hover:text-gold-400">Voice Simulator</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="min-h-screen pt-28 pb-16 px-4 md:px-8 flex items-center justify-center hero-glow relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ca8a04_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-5xl mx-auto text-center z-10">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 text-gold-300 text-xs tracking-widest uppercase font-semibold mb-6">
+                The Living Beauty & Cultural Icon of Pakistan
+            </span>
+            
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight mb-4 gold-text-gradient uppercase">
+                Glorious beauty is original face of yours
+            </h1>
+            
+            <p class="font-playfair italic text-lg sm:text-2xl text-gold-100/90 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+                "You are beauty haven, while you know yourself, but nothing is yours."
+            </p>
+
+            <div class="p-6 md:p-8 rounded-2xl glass-card max-w-3xl mx-auto mb-10 border-gold-500/30 text-left relative">
+                <div class="absolute -top-3 left-6 px-3 bg-velvet text-gold-400 font-cinzel text-xs tracking-widest border border-gold-500/40 rounded">
+                    SOUL CHEF & PHILOSOPHY
+                </div>
+                <p class="text-sm md:text-base text-gray-300 italic font-playfair leading-relaxed">
+                    "Pakistan climbing on dream to develop, make Pakistan heaven on earth... I carry the soul of a nation that aches to dream, to love freely, to breathe outside the shackles of systemic hypocrisy. Being a woman here is to be a warrior of grace, a mother who builds her own kingdom, and a free human who refuses to compromise her truth."
+                </p>
+                <div class="mt-4 flex justify-between items-center text-xs font-cinzel text-gold-400/80">
+                    <span>— MAHIRA HAfeez KHAN</span>
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-gem text-gold-400"></i> KINGDOM OF ARTS</span>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#filmography" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-gold-600 to-gold-400 text-black font-semibold uppercase tracking-wider text-xs hover:shadow-lg hover:shadow-gold-500/30 transition-all transform hover:-translate-y-0.5">
+                    Explore Masterpieces
+                </a>
+                <a href="#speech-lab" class="px-8 py-3.5 rounded-xl border border-gold-500/50 hover:border-gold-400 bg-black/40 text-gold-300 font-semibold uppercase tracking-wider text-xs transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-volume-high"></i> Voice & Speeches
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: BIOGRAPHY & FAMILY TREE -->
+    <section id="biography" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-text-gradient mb-3">Roots, Resilience & Family Tree</h2>
+            <p class="text-sm text-gold-400/80 font-playfair italic">Navigating societal expectations, single motherhood, and the constitutional family pressures</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Bio Overview Card -->
+            <div class="lg:col-span-5 glass-card p-6 md:p-8 rounded-2xl relative">
+                <h3 class="font-cinzel text-xl font-bold text-gold-300 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-feather-pointed text-gold-500"></i> The Unbroken Journey
+                </h3>
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                    Born in Karachi, Pakistan, Mahira Khan's rise from a video jockey (VJ) to South Asia’s most captivating screen goddess is a testament to unyielding dignity. Facing rigid cultural expectations of a Pakistani Muslim woman, Mahira broke barriers by making autonomous choices in her personal and professional life.
+                </p>
+                <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                    As a proud <strong class="text-gold-300">single mother</strong> to her son Azlan, she challenged traditional household conventions in a conservative society. She embraced the quiet agony and triumph of raising a child while remaining an international powerhouse.
+                </p>
+                <div class="p-4 rounded-xl bg-gold-500/10 border border-gold-500/20 text-xs italic text-gold-200">
+                    "Love makes us, but independence defines us. To live authentically as a woman in our culture is an act of quiet revolution."
+                </div>
+            </div>
+
+            <!-- Interactive Family Tree Node Visualizer -->
+            <div class="lg:col-span-7 glass-card p-6 md:p-8 rounded-2xl">
+                <h3 class="font-cinzel text-xl font-bold text-gold-300 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-sitemap text-gold-500"></i> Roots & Life Chapters Interactive Visualizer
+                </h3>
+                <p class="text-xs text-gray-400 mb-6">Click on any node to reveal Mahira's lived experiences and core life philosophy for that epoch.</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6" id="tree-nodes-container">
+                    <!-- Dynamic JS render -->
+                </div>
+
+                <!-- Display Panel for Selected Node -->
+                <div id="tree-detail-panel" class="p-5 rounded-xl bg-black/60 border border-gold-500/30 min-h-[160px]">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span id="node-tag" class="text-xs font-cinzel px-2.5 py-1 rounded bg-gold-500/20 text-gold-300 font-semibold"></span>
+                        <h4 id="node-title" class="font-cinzel font-bold text-gold-100 text-base"></h4>
+                    </div>
+                    <p id="node-desc" class="text-sm text-gray-300 leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PHILOSOPHY & REHUMANISM -->
+    <section id="philosophy" class="py-20 px-4 md:px-8 bg-gradient-to-b from-transparent via-burgundy/20 to-transparent">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-text-gradient mb-3">Rehumanism, Truth & Free Spirit</h2>
+                <p class="text-sm text-gold-400/80 font-playfair italic">Uncensored stance on love, handling social media trolling, industry racism, and being human</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-4">
+                            <i class="fa-solid fa-heart-crack"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-gold-200 mb-3">Love & Open Truth</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            "Love and passion are not sins to be hidden. As women, we are often forced to mask our desire, our pain, and our romance under heavy veils of societal approval. I choose open truth. True love makes us human, complete, and vulnerable."
+                        </p>
+                    </div>
+                    <span class="text-xs font-cinzel text-gold-500">PHILOSOPHY OF EMOTIONAL FREEDOM</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-gold-200 mb-3">Trolling & Industry Racism</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Having navigated cross-border bans, political friction, and relentless social media scrutiny, Mahira responded not with malice, but with unshakeable grace. "Trolls want your energy; give them your excellence instead."
+                        </p>
+                    </div>
+                    <span class="text-xs font-cinzel text-gold-500">RESILIENT DIGNITY</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-4">
+                            <i class="fa-solid fa-fire text-gold-400"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-gold-200 mb-3">Rehumanizing the Goddess</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                            Beyond the title of 'Superstar' lies a real woman who feels periodic pain, bleeds, grieves, and triumphs. Mahira advocates for seeing women not as pedestals or property, but as autonomous, complex human beings.
+                        </p>
+                    </div>
+                    <span class="text-xs font-cinzel text-gold-500">FEMINIST MANIFESTO</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FILMOGRAPHY & DRAMAS SHOWCASE (CARD MODALS) -->
+    <section id="filmography" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-text-gradient mb-3">Kingdom of Masterpieces</h2>
+            <p class="text-sm text-gold-400/80 font-playfair italic">Periodic pain, tragic elegance, and screen dominance — click cards for deep insights</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <!-- Filters & Search -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2" id="filter-buttons">
+                <button data-filter="all" class="filter-btn active px-4 py-2 rounded-lg text-xs font-cinzel font-semibold uppercase tracking-wider bg-gold-500 text-black">All Works</button>
+                <button data-filter="drama" class="filter-btn px-4 py-2 rounded-lg text-xs font-cinzel font-semibold uppercase tracking-wider bg-black/60 text-gold-300 border border-gold-500/30 hover:border-gold-400">TV Dramas</button>
+                <button data-filter="movie" class="filter-btn px-4 py-2 rounded-lg text-xs font-cinzel font-semibold uppercase tracking-wider bg-black/60 text-gold-300 border border-gold-500/30 hover:border-gold-400">Cinema Feature</button>
+            </div>
+
+            <!-- Search Input -->
+            <div class="relative w-full md:w-72">
+                <input type="text" id="search-input" placeholder="Search film/drama or character..." class="w-full bg-black/80 border border-gold-500/40 rounded-xl px-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-gold-400">
+                <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-gold-500/60"></i>
+            </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="filmography-grid">
+            <!-- Dynamic Cards Populated via JS -->
+        </div>
+    </section>
+
+    <!-- MODAL FOR DETAILED WORK VIEW -->
+    <div id="work-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-blur bg-black/80">
+        <div class="glass-card max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border-gold-500/50 p-6 md:p-8 relative">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gold-400 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: RAMP WALK, VOICE & OPEN MANCH -->
+    <section id="manch" class="py-20 px-4 md:px-8 max-w-7xl mx-auto border-t border-gold-500/20">
+        <div class="text-center mb-16">
+            <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-text-gradient mb-3">Ramp Walk & Open Manch</h2>
+            <p class="text-sm text-gold-400/80 font-playfair italic">Commanding the runway at Paris Fashion Week and speaking unfiltered truths to mankind</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- High Fashion / Ramp Walk Highlight -->
+            <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-cinzel text-gold-400 tracking-widest uppercase">Global Runway Icon</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-gold-200 mt-1 mb-4">Paris Fashion Week & Global Presence</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                        Walking alongside global legends like Helen Mirren and Eva Longoria under the Eiffel Tower, Mahira brought Pakistani grace to the world stage. Her runway walks are not merely about high couture—they are acts of unyielding poise, proving that a woman from Pakistan can redefine global beauty standards on her own terms.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 text-center my-4">
+                        <div class="p-3 rounded-lg bg-black/50 border border-gold-500/20">
+                            <span class="block font-cinzel font-bold text-gold-300 text-lg">L'Oréal Paris</span>
+                            <span class="text-[10px] text-gray-400">Official Brand Ambassador</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-black/50 border border-gold-500/20">
+                            <span class="block font-cinzel font-bold text-gold-300 text-lg">UNHCR</span>
+                            <span class="text-[10px] text-gray-400">National Goodwill Ambassador</span>
+                        </div>
+                    </div>
+                </div>
+                <blockquote class="italic text-xs font-playfair text-gold-200/90 border-l-2 border-gold-500 pl-3 py-1">
+                    "When you walk that ramp, you carry every girl back home who was told to shrink herself."
+                </blockquote>
+            </div>
+
+            <!-- Open Manch Speeches -->
+            <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-cinzel text-gold-400 tracking-widest uppercase">Aurat March & Public Forum</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-gold-200 mt-1 mb-4">The Unapologetic Manch Voice</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                        At the Aurat March and international human rights conventions, Mahira speaks directly to mankind. She challenges patriarchy while advocating for systemic empathy, women's legal rights, safety, and bodily autonomy.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-gold-400 mt-0.5"></i>
+                            <span>Advocacy for single parents navigating guardianship laws.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-gold-400 mt-0.5"></i>
+                            <span>Outspoken opposition to colorism and toxic beauty standards in South Asia.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-angle-right text-gold-400 mt-0.5"></i>
+                            <span>Empowering refugee women through UNHCR field visits and global drives.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-3 rounded-xl bg-gold-500/10 border border-gold-500/30 text-xs font-cinzel text-gold-300 text-center">
+                    "BE MAHIRA KHAN: FEARLESS, GRACEFUL, ALIVE"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: TRIUMPHS & AWARDS GRID -->
+    <section id="awards" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-cinzel text-3xl md:text-5xl font-bold gold-text-gradient mb-3">Triumphs & Lifetime Accolades</h2>
+            <p class="text-sm text-gold-400/80 font-playfair italic">Crowns won through devotion, artistic mastery, and global recognition</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="awards-container">
+            <!-- Dynamic Awards Populated JS -->
+        </div>
+    </section>
+
+    <!-- SECTION 6: VOICE & SPEECH SIMULATOR / RAW TRUTH LAB -->
+    <section id="speech-lab" class="py-20 px-4 md:px-8 max-w-5xl mx-auto">
+        <div class="glass-card p-6 md:p-10 rounded-3xl border-gold-500/40 relative overflow-hidden">
+            <div class="text-center mb-8">
+                <span class="text-xs font-cinzel text-gold-400 tracking-widest uppercase">Interactive Audio-Visual Speech Experience</span>
+                <h2 class="font-cinzel text-2xl md:text-4xl font-bold gold-text-gradient mt-1">Mahira's Voice & Manifesto Reader</h2>
+                <p class="text-xs text-gray-400 mt-2">Select a theme to experience her fiery quotes, passion for life, and raw reflections</p>
+            </div>
+
+            <!-- Visualizer Bars Animation -->
+            <div class="flex justify-center items-end gap-1.5 h-16 mb-8 px-4" id="audio-bars">
+                <div class="w-2 bg-gold-500 rounded-t bar-anim" style="animation-duration: 0.8s"></div>
+                <div class="w-2 bg-gold-400 rounded-t bar-anim" style="animation-duration: 1.2s"></div>
+                <div class="w-2 bg-gold-300 rounded-t bar-anim" style="animation-duration: 0.6s"></div>
+                <div class="w-2 bg-gold-500 rounded-t bar-anim" style="animation-duration: 1.0s"></div>
+                <div class="w-2 bg-gold-600 rounded-t bar-anim" style="animation-duration: 1.4s"></div>
+                <div class="w-2 bg-gold-400 rounded-t bar-anim" style="animation-duration: 0.9s"></div>
+                <div class="w-2 bg-gold-300 rounded-t bar-anim" style="animation-duration: 1.1s"></div>
+            </div>
+
+            <!-- Topic Selector -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8" id="speech-topics">
+                <!-- JS Rendered Buttons -->
+            </div>
+
+            <!-- Quote Display Box -->
+            <div class="p-6 rounded-2xl bg-black/80 border border-gold-500/30 text-center relative min-h-[140px] flex flex-col justify-center items-center">
+                <i class="fa-solid fa-quote-left text-gold-500/20 text-4xl absolute top-3 left-4"></i>
+                <p id="speech-quote-text" class="font-playfair text-base md:text-xl text-gold-100 italic relative z-10 leading-relaxed px-4">
+                    Select a topic above to hear the echoes of Mahira Khan's core philosophy.
+                </p>
+                <i class="fa-solid fa-quote-right text-gold-500/20 text-4xl absolute bottom-3 right-4"></i>
+            </div>
+
+            <!-- Play / Audio Simulation Control -->
+            <div class="mt-6 flex justify-center items-center gap-4">
+                <button id="trigger-speech-btn" class="px-6 py-2.5 rounded-full bg-gold-500 text-black font-semibold text-xs font-cinzel uppercase tracking-wider hover:bg-gold-400 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-play" id="play-icon"></i> Speak Text
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-gold-500/20 py-12 px-4 text-center bg-black/90">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <p class="font-cinzel text-xl font-bold gold-text-gradient tracking-widest">MAHIRA HAFEEZ KHAN</p>
+            <p class="text-xs text-gray-400 font-playfair italic max-w-xl mx-auto">
+                "Glorious beauty is original face of yours — You are beauty haven, while you know yourself, but nothing is yours."
+            </p>
+            <p class="text-[11px] text-gray-500 uppercase tracking-widest pt-4">
+                Dedicated Archive & Cultural Tribute &copy; 2026. Kingdom of Arts.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA STRUCTURES --- //
+
+        // Family Tree / Roots Nodes Data
+        const familyTreeData = [
+            {
+                id: 'roots',
+                tag: 'Origins',
+                title: 'Karachi Roots & Early Life',
+                desc: 'Born into a Pashtun family in Karachi. Attended Foundation Public School before leaving for Los Angeles at 17 to pursue higher education at Santa Monica College, working as a cashier at Rite Aid to support herself.'
+            },
+            {
+                id: 'vj',
+                tag: 'Media Break',
+                title: 'VJ Era & Breakthrough',
+                desc: 'Returned to Pakistan and began her career as a VJ on MTV Pakistan in 2006. Her natural charm, intelligence, and magnetic authenticity instantly captured the nation\'s youth.'
+            },
+            {
+                id: 'motherhood',
+                tag: 'Resilience',
+                title: 'Single Motherhood & Azlan',
+                desc: 'Welcomed her son Azlan in 2009. Navigating a personal separation in 2015, she became a fiercely protective single mother, balancing peak stardom with undivided devotion to her son.'
+            },
+            {
+                id: 'culture',
+                tag: 'Challenge',
+                title: 'Overcoming Conservative Barriers',
+                desc: 'Refused to let patriarchal standards define her choices. Stood tall against political boycotts, societal double standards regarding female autonomy, and moral policing.'
+            },
+            {
+                id: 'remarriage',
+                tag: 'Love & Renewal',
+                title: 'Embracing Love on Her Terms',
+                desc: 'In 2023, Mahira married her longtime partner Salim Karim in a breathtaking intimate wedding in Bhurban, proving that love, grace, and second chances are a woman\'s right.'
+            }
+        ];
+
+        // Filmography & Dramas Data
+        const worksData = [
+            {
+                id: 'humsafar',
+                title: 'Humsafar',
+                type: 'drama',
+                year: '2011',
+                role: 'Khirad Ehsan',
+                coStar: 'Fawad Khan',
+                rating: '9.8 / 10',
+                image: 'https://placehold.co/600x400/12050b/ca8a04?text=HUMSAFAR+(Khirad)',
+                synopsis: 'The landmark drama that redefined South Asian television. Khirad, an innocent small-town girl, is thrust into an arranged marriage fraught with class conflict, jealousy, and betrayal.',
+                periodicPain: 'Khirad represents the ultimate endurance of dignified heartbreak. Her quiet tears, false accusations, and proud silence echoed the pain of millions of marginalized women.',
+                awards: 'Lux Style Award for Best TV Actress, Hum Award for Best Onscreen Couple',
+                quote: '“Mera Allah jaanta hai ke main ne kabhi kuch galat nahi kiya...”'
+            },
+            {
+                id: 'legend-maula',
+                title: 'The Legend of Maula Jatt',
+                type: 'movie',
+                year: '2022',
+                role: 'Mukhoo Jattni',
+                coStar: 'Fawad Khan',
+                rating: '9.5 / 10',
+                image: 'https://placehold.co/600x400/12050b/ca8a04?text=THE+LEGEND+OF+MAULA+JATT',
+                synopsis: 'The highest-grossing Pakistani film of all time. Mahira steps into the fiery role of Mukhoo, a fiercely loyal and spirited Punjabi woman who stands shoulder to shoulder with Maula Jatt.',
+                periodicPain: 'Mukhoo rejects submissive femininity. She wields agency, passion, and fierce protectiveness over her love, breaking traditional quiet female archetypes.',
+                awards: 'Global Box Office Triumph ($15M+ Worldwide)',
+                quote: '“Maula, tu jithe javein, Mukhoo tere naal khadi ae.”'
+            },
+            {
+                id: 'sadqay-tumhare',
+                title: 'Sadqay Tumhare',
+                type: 'drama',
+                year: '2014',
+                role: 'Shano',
+                coStar: 'Adnan Malik',
+                rating: '9.3 / 10',
+                image: 'https://placehold.co/600x400/12050b/ca8a04?text=SADQAY+TUMHARE+(Shano)',
+                synopsis: 'A tragic autobiographical romance written by Khalil-ur-Rehman Qamar. Shano is deeply in love with her cousin Khalil, but ancestral feuds and motherly envy tear their lives apart.',
+                periodicPain: 'Exposes the dark underbelly of familial toxicity and how young women\'s desires are crushed under conservative family honour.',
+                awards: 'Lux Style Award for Best TV Actress',
+                quote: '“Mohabbat mein darr kaisa, Khalil?”'
+            },
+            {
+                id: 'verna',
+                title: 'Verna',
+                type: 'movie',
+                year: '2017',
+                role: 'Sara',
+                coStar: 'Haroon Shahid',
+                rating: '9.0 / 10',
+                image: 'https://placehold.co/600x400/12050b/ca8a04?text=VERNA+(Sara)',
+                synopsis: 'Directed by Shoaib Mansoor. A bold, explosive film where Sara, a survivor of sexual violence perpetrated by a powerful politician\'s son, refuses to stay silent or be victimized.',
+                periodicPain: 'Raw, violent confrontation with power structures. Mahira portrays the physical and emotional scars of assault, transforming pain into calculated retribution.',
+                awards: 'Unanimous Critical Acclaim for Brave Performance',
+                quote: '“Power tends to corrupt, but revenge purifies.”'
+            },
+            {
+                id: 'raees',
+                title: 'Raees',
+                type: 'movie',
+                year: '2017',
+                role: 'Aasiya',
+                coStar: 'Shah Rukh Khan',
+                rating: '8.9 / 10',
+                image: 'https://placehold.co/600x400/12050b/ca8a04?text=RAEES+(Aasiya)',
+                synopsis: 'Mahira\'s sensational Bollywood debut alongside Shah Rukh Khan. Set in Gujarat, she plays the strong-willed wife of bootlegger Raees Alam.',
+                periodicPain: 'Bridging nation divides through art. Facing geopolitical bans during the release, she maintained silence and regal dignity.',
+                awards: 'Vogue Beauty Award for International Face',
+                quote: '“Zaalima, tere ko bataun main...”'
+            },
+            {
+                id: 'shehr-e-zaat',
+                title: 'Shehr-e-Zaat',
+                type: 'drama',
+                year: '2012',
+                role: 'Falak Sher Afghan',
+                coStar: 'Mikaal Zulfiqar',
+                rating: '9.6 / 10',
+                image: 'https://placehold.co/600x400/12050b/ca8a04?text=SHEHR-E-ZAAT+(Falak)',
+                synopsis: 'A profound spiritual journey of a wealthy, arrogant sculptor who falls madly in love with a man of physical perfection, only to be shattered by his betrayal, leading her to divine love.',
+                periodicPain: 'The ego\'s death. Falak\'s transformation from superficial beauty to spiritual enlightenment remains one of Pakistani TV\'s greatest portrayals of human suffering.',
+                awards: 'Hum Award for Best Actress',
+                quote: '“Maine mitti ke butt banaye the, aur mitti se hi dhoka khaya...”'
+            },
+            {
+                id: 'superstar',
+                title: 'Superstar',
+                type: 'movie',
+                year: '2019',
+                role: 'Noor',
+                coStar: 'Bilal Ashraf',
+                rating: '9.1 / 10',
+                image: 'https://placehold.co/600x400/12050b/ca8a04?text=SUPERSTAR+(Noor)',
+                synopsis: 'A romantic musical drama depicting the sacrifice, glitter, and heartbreak behind the curtain of fame in the film industry.',
+                periodicPain: 'Captures the loneliness at the top of stardom—where the public owns your face, but your heart remains in solitude.',
+                awards: 'Lux Style Award for Best Film Actress',
+                quote: '“Sitare aasman par acche lagte hain... hum toh insaan hain.”'
+            }
+        ];
+
+        // Triumphs & Awards Data
+        const awardsData = [
+            { year: '2013-2023', title: 'Lux Style Awards', detail: 'Multiple Best Actress Awards for TV & Cinema', icon: 'fa-trophy' },
+            { year: '2017', title: 'Vogue Beauty Award', detail: 'International Beauty Icon of the Year', icon: 'fa-crown' },
+            { year: '2019', title: 'UNHCR Goodwill Ambassador', detail: 'Appointed National Ambassador for Refugees', icon: 'fa-hand-holding-heart' },
+            { year: '2018', title: 'UK Asian Film Festival', detail: 'Contribution to Cinema Award (London)', icon: 'fa-film' },
+            { year: '2019', title: 'Paris Fashion Week Walk', detail: 'Represented South Asia on the Eiffel Tower Runway', icon: 'fa-shoe-prints' },
+            { year: '2020', title: 'BBC 100 Women Nominee', detail: 'Recognized for Advocacy & Screen Impact', icon: 'fa-globe' },
+            { year: '2022', title: 'Maula Jatt Phenomenon', detail: 'Starred in Highest Grossing Pakistani Epic', icon: 'fa-star' },
+            { year: '2024', title: 'Lifetime Beauty Icon', detail: 'Honored as the Face of Resilient Feminism', icon: 'fa-gem' }
+        ];
+
+        // Voice Simulator Quotes
+        const speechQuotes = [
+            {
+                topic: 'Feminism & Autonomy',
+                text: '“Feminism is not about putting men down. It is about demanding that women be given equal air to breathe, equal right to decide, and the dignity to exist without fear.”'
+            },
+            {
+                topic: 'Single Motherhood',
+                text: '“My son Azlan is my absolute anchor. Being a single mother in a world ready to judge you teaches you that your child does not need a perfect setup—he needs a mother who is whole.”'
+            },
+            {
+                topic: 'Beauty & Aging',
+                text: '“Glorious beauty is the original face of yours. Beauty isn’t wrinkle-free skin; it is the courage to carry your scars, your laughter, your periodic pain, and still stand tall.”'
+            },
+            {
+                topic: 'Handling Trolls & Racism',
+                text: '“When people hurl toxicity at you, it is never about you—it is about their own emptiness. Answer hatred with work so silent and powerful that it rings like thunder.”'
+            },
+            {
+                topic: 'Being Human & Alive',
+                text: '“You are a beauty haven when you know yourself, but remember: nothing is yours except the love you give and the humanity you leave behind.”'
+            }
+        ];
+
+
+        // --- APPLICATION INITIALIZATION --- //
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileNav();
+            renderFamilyTree();
+            renderFilmography(worksData);
+            initFilterAndSearch();
+            renderAwards();
+            initSpeechSimulator();
+        });
+
+        // Mobile Nav Toggle
+        function initMobileNav() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const drawer = document.getElementById('mobile-drawer');
+            btn.addEventListener('click', () => {
+                drawer.classList.toggle('hidden');
+                drawer.classList.toggle('flex');
+            });
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => drawer.classList.add('hidden'));
+            });
+        }
+
+        // Family Tree Visualizer
+        function renderFamilyTree() {
+            const container = document.getElementById('tree-nodes-container');
+            container.innerHTML = familyTreeData.map((node, index) => `
+                <button onclick="selectTreeNode('${node.id}')" class="tree-node-btn p-3 rounded-xl border ${index === 0 ? 'border-gold-400 bg-gold-500/20' : 'border-gold-500/20 bg-black/40'} hover:border-gold-400 transition-all text-left group">
+                    <span class="text-[10px] font-cinzel text-gold-400 block">${node.tag}</span>
+                    <span class="text-xs font-bold font-cinzel text-gray-200 group-hover:text-gold-200">${node.title}</span>
+                </button>
+            `).join('');
+
+            // Select first by default
+            selectTreeNode(familyTreeData[0].id);
+        }
+
+        window.selectTreeNode = function(id) {
+            const node = familyTreeData.find(n => n.id === id);
+            if (!node) return;
+
+            document.getElementById('node-tag').innerText = node.tag;
+            document.getElementById('node-title').innerText = node.title;
+            document.getElementById('node-desc').innerText = node.desc;
+
+            // Highlight button styling
+            const buttons = document.querySelectorAll('.tree-node-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(id)) {
+                    btn.classList.add('border-gold-400', 'bg-gold-500/20');
+                    btn.classList.remove('border-gold-500/20', 'bg-black/40');
+                } else {
+                    btn.classList.remove('border-gold-400', 'bg-gold-500/20');
+                    btn.classList.add('border-gold-500/20', 'bg-black/40');
+                }
+            });
+        }
+
+        // Render Filmography Grid
+        function renderFilmography(items) {
+            const grid = document.getElementById('filmography-grid');
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 font-cinzel">No film or drama matched your search.</div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map(work => `
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="openWorkModal('${work.id}')">
+                    <div>
+                        <div class="relative overflow-hidden h-48 bg-black">
+                            <img src="${work.image}" alt="${work.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 px-2.5 py-1 rounded bg-black/80 border border-gold-500/40 text-[10px] font-cinzel text-gold-300 uppercase tracking-widest">
+                                ${work.type === 'drama' ? 'TV Series' : 'Feature Film'}
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-cinzel font-bold text-lg text-gold-100 group-hover:text-gold-300 transition-colors">${work.title}</h3>
+                                <span class="text-xs font-semibold text-gold-400 font-cinzel">${work.year}</span>
+                            </div>
+                            <p class="text-xs text-gold-300/80 mb-2 font-medium">Role: ${work.role} (co-star: ${work.coStar})</p>
+                            <p class="text-xs text-gray-300 line-clamp-3 leading-relaxed mb-4">${work.synopsis}</p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-0">
+                        <button class="w-full py-2.5 rounded-xl border border-gold-500/30 group-hover:border-gold-400 bg-gold-500/10 group-hover:bg-gold-500 text-gold-300 group-hover:text-black font-cinzel text-xs font-bold uppercase tracking-wider transition-all">
+                            Explore Character Details
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Modal Functionality
+        window.openWorkModal = function(id) {
+            const work = worksData.find(w => w.id === id);
+            if (!work) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="flex flex-col md:flex-row gap-6 items-start mb-6">
+                    <img src="${work.image}" alt="${work.title}" class="w-full md:w-5/12 h-56 object-cover rounded-xl border border-gold-500/30">
+                    <div class="w-full md:w-7/12">
+                        <span class="px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 text-[10px] font-cinzel uppercase tracking-widest border border-gold-500/40">
+                            ${work.type === 'drama' ? 'Television Masterpiece' : 'Cinematic Landmark'}
+                        </span>
+                        <h2 class="font-cinzel text-3xl font-bold text-gold-100 mt-2">${work.title}</h2>
+                        <p class="text-xs text-gold-400 font-semibold mt-1">Released: ${work.year} | Rating: ${work.rating}</p>
+                        <p class="text-xs text-gray-300 mt-2"><strong>Character Role:</strong> ${work.role}</p>
+                        <p class="text-xs text-gray-300"><strong>Co-Star:</strong> ${work.coStar}</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 rounded-xl bg-black/60 border border-gold-500/20">
+                        <h4 class="font-cinzel text-xs text-gold-400 font-bold uppercase tracking-wider mb-1">Synopsis & Core Narrative</h4>
+                        <p class="text-xs md:text-sm text-gray-300 leading-relaxed">${work.synopsis}</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-burgundy/30 border border-gold-500/30">
+                        <h4 class="font-cinzel text-xs text-gold-400 font-bold uppercase tracking-wider mb-1">Periodic Pain & Emotional Resonance</h4>
+                        <p class="text-xs md:text-sm text-gray-200 italic leading-relaxed">${work.periodicPain}</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3.5 rounded-xl bg-black/40 border border-gold-500/20">
+                            <span class="text-[10px] font-cinzel text-gold-400 uppercase block">Awards & Recognitions</span>
+                            <span class="text-xs font-semibold text-gray-200">${work.awards}</span>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-black/40 border border-gold-500/20">
+                            <span class="text-[10px] font-cinzel text-gold-400 uppercase block">Iconic Line</span>
+                            <span class="text-xs italic text-gold-200 font-playfair">${work.quote}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('work-modal');
+            modal.classList.remove('hidden');
+        }
+
+        document.getElementById('close-modal-btn').addEventListener('click', () => {
+            document.getElementById('work-modal').classList.add('hidden');
+        });
+
+        document.getElementById('work-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'work-modal') {
+                document.getElementById('work-modal').classList.add('hidden');
+            }
+        });
+
+        // Filter and Search Logic
+        function initFilterAndSearch() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('search-input');
+            let activeFilter = 'all';
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-gold-500', 'text-black');
+                        b.classList.add('bg-black/60', 'text-gold-300');
+                    });
+                    btn.classList.add('bg-gold-500', 'text-black');
+                    btn.classList.remove('bg-black/60', 'text-gold-300');
+
+                    activeFilter = btn.getAttribute('data-filter');
+                    applyFilterAndSearch();
+                });
+            });
+
+            searchInput.addEventListener('input', applyFilterAndSearch);
+
+            function applyFilterAndSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                const filtered = worksData.filter(work => {
+                    const matchesFilter = activeFilter === 'all' || work.type === activeFilter;
+                    const matchesQuery = work.title.toLowerCase().includes(query) ||
+                                         work.role.toLowerCase().includes(query) ||
+                                         work.coStar.toLowerCase().includes(query);
+                    return matchesFilter && matchesQuery;
+                });
+                renderFilmography(filtered);
+            }
+        }
+
+        // Render Awards
+        function renderAwards() {
+            const container = document.getElementById('awards-container');
+            container.innerHTML = awardsData.map(award => `
+                <div class="glass-card p-5 rounded-2xl flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/40 flex-shrink-0 flex items-center justify-center text-gold-400">
+                        <i class="fa-solid ${award.icon}"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-cinzel text-gold-500 font-bold block">${award.year}</span>
+                        <h4 class="font-cinzel text-sm font-bold text-gold-100">${award.title}</h4>
+                        <p class="text-xs text-gray-300 mt-1">${award.detail}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Speech Visualizer & Quote Reader
+        function initSpeechSimulator() {
+            const topicContainer = document.getElementById('speech-topics');
+            const quoteText = document.getElementById('speech-quote-text');
+            const triggerBtn = document.getElementById('trigger-speech-btn');
+            const playIcon = document.getElementById('play-icon');
+            let currentSpeechIndex = 0;
+
+            topicContainer.innerHTML = speechQuotes.map((q, idx) => `
+                <button onclick="selectSpeechTopic(${idx})" class="speech-topic-btn px-3 py-1.5 rounded-lg text-xs font-cinzel border ${idx === 0 ? 'border-gold-400 bg-gold-500/20 text-gold-200' : 'border-gold-500/20 bg-black/40 text-gray-400'} hover:border-gold-400 transition-all">
+                    ${q.topic}
+                </button>
+            `).join('');
+
+            window.selectSpeechTopic = function(idx) {
+                currentSpeechIndex = idx;
+                quoteText.innerText = speechQuotes[idx].text;
+
+                const btns = document.querySelectorAll('.speech-topic-btn');
+                btns.forEach((btn, i) => {
+                    if (i === idx) {
+                        btn.classList.add('border-gold-400', 'bg-gold-500/20', 'text-gold-200');
+                        btn.classList.remove('border-gold-500/20', 'bg-black/40', 'text-gray-400');
+                    } else {
+                        btn.classList.remove('border-gold-400', 'bg-gold-500/20', 'text-gold-200');
+                        btn.classList.add('border-gold-500/20', 'bg-black/40', 'text-gray-400');
+                    }
+                });
+            };
+
+            // Speech Synthesis (Browser TTS)
+            triggerBtn.addEventListener('click', () => {
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.cancel(); // stop previous
+                    const utterance = new SpeechSynthesisUtterance(speechQuotes[currentSpeechIndex].text);
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1.0;
+
+                    utterance.onstart = () => {
+                        playIcon.className = 'fa-solid fa-volume-high text-gold-300 animate-pulse';
+                    };
+                    utterance.onend = () => {
+                        playIcon.className = 'fa-solid fa-play';
+                    };
+                    utterance.onerror = () => {
+                        playIcon.className = 'fa-solid fa-play';
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    alert('Speech synthesis is not supported in this browser.');
+                }
+            });
+
+            // Initialize first topic
+            selectSpeechTopic(0);
+        }
+    </script>
+</body>
+</html>
